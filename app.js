@@ -16,5 +16,5 @@ app.use(cors()); // Enable Cors For All Network Request
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
-    console.log(`API Server running on ${PORT}`);
+    console.log(`API Server running on PORT ${PORT}`);
 });
