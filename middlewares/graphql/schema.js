@@ -1,3 +1,5 @@
+import { makeExecutableSchema } from 'graphql-tools'
+
 const typeDefs = `
 type User {
     id: Int,
@@ -27,4 +29,6 @@ schema {
     query: Query
 }
 `
-export default [typeDefs];
+
+const schema = makeExecutableSchema({ typeDefs })
+export default schema;
