@@ -4,7 +4,6 @@ const typeDefs = `
 type User {
     id: Int,
     email: String
-    password: String
 }
 
 type Place {
