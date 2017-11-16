@@ -1,4 +1,4 @@
-import { User } from '../../db/connect'
+import{ User } from '../../db/connect';
 
 const reslovers = {
     Query: {
@@ -7,3 +7,5 @@ const reslovers = {
         }
    }
 };
+
+export default resolvers;
