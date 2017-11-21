@@ -1,4 +1,5 @@
 import { makeExecutableSchema } from 'graphql-tools'
+import resolvers from './resolvers';
 
 const typeDefs = `
 type User {
@@ -29,5 +30,5 @@ schema {
 }
 `
 
-const schema = makeExecutableSchema({ typeDefs })
+const schema = makeExecutableSchema({ typeDefs, resolvers })
 export default schema;

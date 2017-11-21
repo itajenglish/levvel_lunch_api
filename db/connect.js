@@ -26,7 +26,7 @@ db.User.hasMany(db.Vote);
 db.Place.hasMany(db.Vote);
 
 // Database Setup
-sequelize.authenticate()
+sequelize.sync({ force: false })
     .then(() => {
         console.log('[Database Connection Established!]');
     })
