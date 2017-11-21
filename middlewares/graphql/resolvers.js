@@ -1,6 +1,7 @@
-import{ User } from '../../db/connect';
+// import { User } from '../../db/connect';
+import { User } from '../../db/connect';
 
-const reslovers = {
+const resolvers = {
     Query: {
         user(_, args) {
             return User.find({ where: args });

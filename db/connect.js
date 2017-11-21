@@ -1,7 +1,6 @@
 import Sequelize from 'sequelize';
-import { user, vote, place } from '../models';
 
-const db = new Sequelize('Levvel_Lunch', 'tajenglish', null, {
+const sequelize = new Sequelize('Levvel_Lunch', 'tajenglish', null, {
     host: 'localhost',    
     dialect: 'postgres',
     logging: console.log,
@@ -13,22 +12,27 @@ const db = new Sequelize('Levvel_Lunch', 'tajenglish', null, {
       }
 });
 
+// Models Setup
+const db = {};
+db.Sequelize = Sequelize;  
+db.sequelize = sequelize;
+
+db.User = sequelize.import('../models/user');
+db.Vote = sequelize.import('../models/vote');
+db.Place = sequelize.import('../models/place');
+
 // Model Relationships
-user.hasMany(vote);
-place.hasMany(vote);
+db.User.hasMany(db.Vote);
+db.Place.hasMany(db.Vote);
 
 // Database Setup
-db.authenticate()
+sequelize.authenticate()
     .then(() => {
-        console.log('Database Connection Established!');
+        console.log('[Database Connection Established!]');
     })
     .catch(err => {
         console.log('[Database Error]', err);
     });
 
-const User = db.models.user;
-const Vote = db.models.vote;
-const Place = db.models.place;
-
-
-export default { User, Vote, Place };
+    
+export default db;
