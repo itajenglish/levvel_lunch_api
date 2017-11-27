@@ -8,6 +8,11 @@ const resolvers = {
             console.log('working')
             return User.find({ where: args });
         }
+   },
+   Mutation: {
+       createUser: (_, args) => {
+           return User.create(args);
+       }
    }
 };
 

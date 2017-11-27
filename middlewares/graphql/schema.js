@@ -25,8 +25,13 @@ type Query {
     vote(upvote: Boolean, downvote: Boolean): Vote
 }
 
+type Mutation {
+    createUser(email: String): User
+}
+
 schema {
     query: Query
+    mutation: Mutation
 }
 `
 
